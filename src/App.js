@@ -32,7 +32,8 @@ function App() {
             </a>
           </div>
           <h1 className="main-heading">
-            Art. Process.<br />
+            Art.<br />
+            Process.<br />
             Expression.
           </h1>
           <p className="subtext">Explore my world of art and music coming soon.</p>

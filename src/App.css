@@ -75,7 +75,7 @@
   font-family: 'Average Sans', sans-serif;
   font-size: 26px;
   color: #1a1a1a;
-  margin: 0 0 3rem 0;
+  margin: 16px 0 3rem 0;
   line-height: 1.5;
 }
 
@@ -88,19 +88,18 @@
 
 /* Right Content - Video */
 .content-right {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  margin-top: -4rem;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50vw;
+  z-index: 10;
 }
 
 .artwork-video {
   width: 100%;
-  max-width: 1080px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-top: 60px;
 }
 
 /* Responsive Design */
@@ -133,9 +132,11 @@
   }
 
   .content-right {
-    margin-top: 0;
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
     order: 2;
-    justify-content: center;
   }
 
   .social-icons {
