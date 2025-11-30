@@ -1,9 +1,10 @@
 import './App.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import video from './Assets/Images/kerslypottervideo.mp4';
 
 function App() {
   const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const playVideo = async () => {
@@ -18,6 +19,13 @@ function App() {
 
     playVideo();
   }, []);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
 
   return (
     <div className="App">
@@ -44,6 +52,7 @@ function App() {
             ref={videoRef}
             className="artwork-video"
             autoPlay
+            muted
             loop
             playsInline
             controls
@@ -51,6 +60,13 @@ function App() {
             <source src={video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          <button
+            className="unmute-button"
+            onClick={toggleMute}
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+          >
+            <i className={isMuted ? "fas fa-volume-mute" : "fas fa-volume-up"}></i>
+          </button>
         </div>
       </div>
     </div>
